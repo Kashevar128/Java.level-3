@@ -5,6 +5,7 @@ import java.util.List;
 
 public class Box <T>{
     List<T> basket = new ArrayList();
+    Object T;
 
     public void addFruits (T fruit, int n) {
         for (int i = 0; i < n; i++) {
@@ -17,17 +18,21 @@ public class Box <T>{
     }
 
     public float getWeight() {
-        return (Fruit.fruitWeight*basket.size());
+        float sum = 0;
+        for(Object T : basket) {
+            if (!T.equals(null)) {
+                sum += Fruit.fruitWeight;
+            }
+        }
+        return sum;
     }
 
-    public boolean compare (int another) {
-        
+    public boolean compare (Box <?> another) {
+        if (this.getWeight() == another.getWeight()) {
+            return true;
+        }
+        else return false;
     }
-
-    public void shiftFruits () {
-        basket.clear();
-    }
-
 
 
 
