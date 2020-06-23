@@ -3,23 +3,28 @@ package Home_Work_Lesson_1;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Box{
-    List<TransferApple> basket = new ArrayList();
-    List<TransferOrange> basket = new ArrayList<>();
+public class Box <T>{
+    List<T> basket = new ArrayList();
 
-    public void addFruits (TransferApple fruit) {basket.add(fruit);}
+    public void addFruits (T fruit, int n) {
+        for (int i = 0; i < n; i++) {
+            basket.add(fruit);
+        }
+    }
 
+    public void addFruits (T fruit) {
+        basket.add(fruit);
+    }
 
     public float getWeight() {
-        return (float) (Fruit.fruitWeight*basket.size());
+        return (Fruit.fruitWeight*basket.size());
     }
 
     public boolean compare (int another) {
-        return Math.abs(this.getWeight() - another.getWeight) < 0.0001;
+        
     }
 
-    public void shiftFruits (Object box) {
-        box = basket.size();
+    public void shiftFruits () {
         basket.clear();
     }
 
