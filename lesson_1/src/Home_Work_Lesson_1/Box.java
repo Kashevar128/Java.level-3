@@ -3,9 +3,9 @@ package Home_Work_Lesson_1;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Box <T>{
+public class Box <T extends Fruit>{
     List<T> basket = new ArrayList();
-    Object T;
+    T fruit;
 
     public void addFruits (T fruit, int n) {
         for (int i = 0; i < n; i++) {
@@ -19,9 +19,9 @@ public class Box <T>{
 
     public float getWeight() {
         float sum = 0;
-        for(Object T : basket) {
-            if (!T.equals(null)) {
-                sum += Fruit.fruitWeight;
+        for(T fruit : basket) {
+            if (!fruit.equals(null)) {
+                sum += fruit.getFruitWeight();
             }
         }
         return sum;
@@ -33,6 +33,12 @@ public class Box <T>{
         }
         else return false;
     }
+
+    public void shiftFruit (Box <T> box) {
+        box.basket.addAll(basket);
+        basket.clear();
+    }
+
 
 
 

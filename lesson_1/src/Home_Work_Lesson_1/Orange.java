@@ -1,8 +1,9 @@
 package Home_Work_Lesson_1;
 
-public class Orange extends Fruit implements TransferOrange {
+public class Orange extends Fruit {
 
-    public Orange() {
-        fruitWeight = 1.5f;
+    @Override
+    public float getFruitWeight() {
+        return 1.5f;
     }
 }
