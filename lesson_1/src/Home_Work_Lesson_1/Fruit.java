@@ -1,5 +1,5 @@
 package Home_Work_Lesson_1;
 
-public class Fruit {
-    public static float fruitWeight;
+public abstract class Fruit {
+    public abstract float getFruitWeight();
 }
