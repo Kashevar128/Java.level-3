@@ -1,4 +1,6 @@
+package Home_Work_Lesson_5;
 
+import java.util.concurrent.CountDownLatch;
 
 public class Car implements Runnable {
     private static int CARS_COUNT;
@@ -35,11 +37,15 @@ public class Car implements Runnable {
             race.getStages().get(i).go(this);
             if (i == race.getStages().size() - 1) {
                 MainClass.lock.lock();
-                System.out.println(name + " Победил!");
-                while(MainClass.flagWinner == true) {
-                    MainClass.lock.unlock();
-                }
+               System.out.println(name + " Победил!");
             }
         }
+        try {
+            Thread.sleep(7000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println("ВАЖНОЕ ОБЪЯВЛЕНИЕ >>> Гонка закончилась!!!");
+        System.exit(0);
     }
 }

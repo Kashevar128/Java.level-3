@@ -1,4 +1,6 @@
+package Home_Work_Lesson_5;
 
+import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.CyclicBarrier;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.locks.Lock;
@@ -9,7 +11,6 @@ public class MainClass {
     public static final CyclicBarrier cb = new CyclicBarrier(CARS_COUNT, new StartRace());
     public static final Semaphore smp = new Semaphore(2);
     public static final Lock lock = new ReentrantLock();
-    public static boolean flagWinner = false;
 
     public static void main(String[] args) throws InterruptedException {
         System.out.println("ВАЖНОЕ ОБЪЯВЛЕНИЕ >>> Подготовка!!!");
@@ -25,12 +26,5 @@ public class MainClass {
             threads[i] = new Thread(cars[i]);
             threads[i].start();
         }
-
-        for (int i = 0; i < cars.length; i++) {
-            threads[i].join();
-        }
-
-
-        System.out.println("ВАЖНОЕ ОБЪЯВЛЕНИЕ >>> Гонка закончилась!!!");
     }
 }
